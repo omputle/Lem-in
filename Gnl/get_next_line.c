@@ -28,7 +28,7 @@ static char	*ft_readline(char *fd_arr, char **line)
 	}
 	else
 	{
-		temp = ft_strsub(fd_arr, a + 1, ft_strlen(fd_arr + a) + 1);
+		temp = ft_strsub(fd_arr, a + 1, ft_strlen(fd_arr + a));
 		ft_strdel(&fd_arr);
 	}
 	return (temp);
@@ -54,7 +54,10 @@ int			get_next_line(const int fd, char **line)
 		fd_arr[fd] = ft_strdupdel(&temp);
 	}
 	if (ret < BUFF_SIZE && !ft_strlen(fd_arr[fd]))
+	{
+		ft_strdel(&fd_arr[fd]);
 		return (0);
+	}
 	fd_arr[fd] = ft_readline(fd_arr[fd], line);
 	return (1);
 }

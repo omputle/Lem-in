@@ -11,22 +11,20 @@
 # **************************************************************************** #
 
 NAME = Lem-in
-LIBFT = libft/
+LIBFT = libft/*.c
 GNL = Gnl/get_next_line.c
-SRCS = src/
-CCFL = -Wall -Wextra -Werror -lncurses -ltermcap -L $(LIBFT) -lft
+SRCS = src/*.c
+CCFL = $(LIBFT) 
 
 all: $(NAME)
 
 $(NAME):
-		@MAKE -C $(LIBFT) re 
-		@gcc $(CCFL) $(SRCS)*.c $(GNL) -o $(NAME)
+		gcc $(SRCS) $(LIBFT) $(GNL) -o $(NAME) 
 
 clean:
 		@make -C $(LIBFT) clean
 
 fclean:
-		@make -C $(LIBFT) fclean
 		@/bin/rm -rf $(NAME)
 
 re: fclean all

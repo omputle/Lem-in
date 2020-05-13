@@ -49,7 +49,13 @@ static void		read_map(t_map *m)
 		else if ((m->val_started == 1 || m->val_started == 2) && !is_empty(line))
 			rooms(m, line);
 		else
+		{
+			free(line);
 			exit_func(m, 1);
+		}
+		// ft_strdel(&line);
+		// &line = NULL;
+		// free(line);
 	}
 	if (!m->quant_ants || !m->links[0])
 		exit_func(m, 1);
@@ -60,10 +66,10 @@ static t_map	*map_init(void)
 {
 	t_map *m;
 
-	m = (t_map*)ft_memalloc(sizeof(t_map));
-	m->links = ft_strnew(1);
-	m->ants_str = ft_strnew(1);
-	m->rooms_list = ft_strnew(1);
+	m = (t_map*)malloc(sizeof(t_map));
+	m->links = ft_strnew(0);
+	m->ants_str = ft_strnew(0);
+	m->rooms_list = ft_strnew(0);
 	m->quant_rooms = 0;
 	m->quant_ants = 0;
 	m->val_started = 0;

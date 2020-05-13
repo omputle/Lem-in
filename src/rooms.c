@@ -34,7 +34,12 @@ void		rooms(t_map *m, char *line)
 	m->val_started = 2;
 	m->rooms_list = join_str(m->rooms_list, line, 0);
 	if (line[0] == '#')
+	{
+		free(line);
 		return ;
+	}
 	validate_room(m, line);
+	if (line)
+		free(line);
 	m->quant_rooms++;
 }
