@@ -12,6 +12,8 @@ typedef	struct	s_map
 	int		check;
 	int		num_ants;
 	int 	num_rooms;
+	int 	*rooms_array;
+	int 	**adj_mat;
 	char	*start;
 	char	*end;
 	char	**paths;
@@ -28,6 +30,8 @@ void  get_rooms(t_map *m, char *line);
 void  get_links(t_map *m, char *line);
 
 void find_paths(t_map *m);
+void  adjacency_matrix(t_map *m);
+int find_room(t_map *m, int room);
 
 void   del_array_arrays(char **arr);
 char  *append_string(char *s1, char *s2);

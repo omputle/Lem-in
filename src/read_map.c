@@ -13,7 +13,7 @@ void	read_map(t_map *m)
 			get_rooms(m, line);
 		else
 			exit_program(m);
-		ft_putendl(line);
+		// ft_putendl(line);
 		ft_strdel(&line);
 	}
 }

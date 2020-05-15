@@ -10,9 +10,14 @@ int  main(void)
   ft_putendl("finding paths");
   find_paths(m);
   ft_putendl("back to main");
-  ft_putendl(m->ants);
-  ft_putendl(m->start);
-  ft_putendl(m->end);
+  adjacency_matrix(m);
+
   exit_program(m);
+  // char *s1;
+  // char **s2;
+  //
+  // s2 = ft_strsplit("the day the earth stood still", ' ');
+  // s1 = ft_strimplode(s2, "the", "earth");
+  // ft_putendl(s1);
   return (0);
 }

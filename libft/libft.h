@@ -74,5 +74,8 @@ int		ft_isnum(char *str);
 int		ab_value(int num);
 void	ft_del_arr(char **arr);
 long	ft_atol(const char *str);
+char  *ft_strdup_del(char *s);
+char    *ft_strtrim_del(char *s, char *old_str);
+char  *ft_strimplode(char **arr, char *s1, char *s2);
 
 #endif

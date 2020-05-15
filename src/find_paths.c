@@ -12,7 +12,9 @@ static void locate_start(t_map *m)
   {
     str = ft_strtrim(rooms_list[i]);
     if (ft_strcmp(str, "##start") == 0 && rooms_list[i + 1] != NULL)
-      m->start = ft_strtrim(rooms_list[++i]);
+    {
+      m->start = ft_strtrim_del(rooms_list[++i], m->start);
+    }
     ft_strdel(&str);
     i++;
   }
@@ -33,7 +35,7 @@ static void locate_end(t_map *m)
   {
     str = ft_strtrim(rooms_list[i]);
     if (ft_strcmp(str, "##end") == 0 && rooms_list[i + 1] != NULL)
-      m->end = ft_strtrim(rooms_list[++i]);
+      m->end = ft_strtrim_del(rooms_list[++i], m->end);
     ft_strdel(&str);
     i++;
   }
