@@ -16,14 +16,14 @@ void  get_rooms(t_map *m, char *line)
     if (!ft_isnum(room_vals[i]))
     {
       del_array_arrays(room_vals);
-      exit_program(m);
+      exit_program(m, 0, 1);
     }
     i++;
   }
   if (i != 3)
   {
     del_array_arrays(room_vals);
-    exit_program(m);
+    exit_program(m, 0, 1);
   }
   del_array_arrays(room_vals);
   m->num_rooms++;

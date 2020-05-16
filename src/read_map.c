@@ -12,7 +12,7 @@ void	read_map(t_map *m)
 		else if ((m->check == 1 || m->check == 2) && line)
 			get_rooms(m, line);
 		else
-			exit_program(m);
+			exit_program(m, 0, 1);
 		// ft_putendl(line);
 		ft_strdel(&line);
 	}

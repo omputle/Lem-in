@@ -20,7 +20,7 @@ static void locate_start(t_map *m)
   }
   del_array_arrays(rooms_list);
   if (ft_strlen(m->start) == 0)
-    exit_program(m);
+    exit_program(m, 0, 1);
 }
 
 static void locate_end(t_map *m)
@@ -41,16 +41,10 @@ static void locate_end(t_map *m)
   }
   del_array_arrays(rooms_list);
   if (ft_strlen(m->end) == 0)
-    exit_program(m);
+    exit_program(m, 0, 1);
 }
 
-
-static  void count_rooms()
-{
-  /* code */
-}
-
-void find_paths(t_map *m)
+void locate_start_end(t_map *m)
 {
   locate_start(m);
   locate_end(m);

@@ -3,21 +3,18 @@
 int  main(void)
 {
   t_map *m;
-  ft_putendl("structs init");
+  int i = 0;
+  int j = 0;
   m = map_init();
-  ft_putendl("read map");
   read_map(m);
-  ft_putendl("finding paths");
-  find_paths(m);
-  ft_putendl("back to main");
+  locate_start_end(m);
+  struct_init(m);
   adjacency_matrix(m);
-
-  exit_program(m);
-  // char *s1;
-  // char **s2;
-  //
-  // s2 = ft_strsplit("the day the earth stood still", ' ');
-  // s1 = ft_strimplode(s2, "the", "earth");
-  // ft_putendl(s1);
+  if (find_path(m))
+  {
+    print_map(m);
+    print_path(m, 2);
+  }
+  exit_program(m, 1, 0);
   return (0);
 }

@@ -10,16 +10,22 @@ static void delete_double_int_arr(int **arr, t_map *m)
   arr = NULL;
 }
 
-void  exit_program(t_map *m)
+void  exit_program(t_map *m, int check, int error)
 {
   ft_strdel(&(m->ants));
   ft_strdel(&(m->rooms));
   ft_strdel(&(m->links));
   ft_strdel(&(m->start));
   ft_strdel(&(m->end));
-  free(m->rooms_array);
-  delete_double_int_arr(m->adj_mat, m);
+  if (check == 1)
+  {
+    free(m->rooms_array);
+    free(m->path);
+    delete_double_int_arr(m->adj_mat, m);
+  }
   free(m);
   m = NULL;
+  if (error)
+  ft_putendl("ERROR");
   exit(0);
 }
