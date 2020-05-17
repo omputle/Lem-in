@@ -1,6 +1,6 @@
 #include "../lemin.h"
 
-static void delete_double_int_arr(int **arr, t_map *m)
+static void delete_double_int_arr(int **arr, t_object *m)
 {
   int i = 0;
 
@@ -10,7 +10,7 @@ static void delete_double_int_arr(int **arr, t_map *m)
   arr = NULL;
 }
 
-void  exit_program(t_map *m, int check, int error)
+void  exit_program(t_object *m, int check, int error)
 {
   ft_strdel(&(m->ants));
   ft_strdel(&(m->rooms));

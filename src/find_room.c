@@ -1,6 +1,7 @@
 #include "../lemin.h"
 
-int find_room(t_map *m, int room)
+int find_room(t_object *m, int room)
+/* finds the index of a room in the rooms array */
 {
   int i;
 

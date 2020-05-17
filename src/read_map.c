@@ -1,9 +1,9 @@
 #include "../lemin.h"
 
-void	read_map(t_map *m)
+void	read_map(t_object *m)
 {
 	char	*line;
-	while (get_next_line(STDIN_FILENO, &line) > 0)
+	while (get_next_line(0, &line) > 0)
 	{
 		if (ft_strlen(m->ants) == 0)
 			get_ants(m, line);
@@ -13,7 +13,6 @@ void	read_map(t_map *m)
 			get_rooms(m, line);
 		else
 			exit_program(m, 0, 1);
-		// ft_putendl(line);
 		ft_strdel(&line);
 	}
 }

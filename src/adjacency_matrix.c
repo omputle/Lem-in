@@ -1,6 +1,6 @@
 #include "../lemin.h"
 
-static  void set_rooms_array(t_map *m, char *start, char *end)
+static  void set_rooms_array(t_object *m, char *start, char *end)
 {
   char **rooms_str;
   char **inv_str;
@@ -33,7 +33,7 @@ static  void set_rooms_array(t_map *m, char *start, char *end)
   del_array_arrays(rooms_str);
 }
 
-static void create_adjaceny_matrix(t_map *m)
+static void create_adjaceny_matrix(t_object *m)
 {
   int i = 0;
   int j = 0;
@@ -52,7 +52,7 @@ static void create_adjaceny_matrix(t_map *m)
   }
 }
 
-void  add_links_to_adjmat(t_map *m)
+void  add_links_to_adjmat(t_object *m)
 {
   char  **links;
   char  **link;
@@ -77,7 +77,7 @@ void  add_links_to_adjmat(t_map *m)
   del_array_arrays(links);
 }
 
-void  adjacency_matrix(t_map *m)
+void  adjacency_matrix(t_object *m)
 {
   char **start;
   char **end;

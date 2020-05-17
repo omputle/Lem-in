@@ -1,10 +1,10 @@
 #include "../lemin.h"
 
-t_map		*map_init(void)
+t_object		*map_init(void)
 {
-  t_map   *m;
+  t_object   *m;
 
-  m = (t_map*)malloc(sizeof(t_map));
+  m = (t_object*)malloc(sizeof(t_object));
   m->ants = ft_strnew(0);
   m->rooms = ft_strnew(0);
   m->links = ft_strnew(0);

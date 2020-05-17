@@ -1,6 +1,6 @@
 #include "../lemin.h"
 
-void  get_links(t_map *m, char *line)
+void  get_links(t_object *m, char *line)
 {
   char  **link;
   int i = 0;

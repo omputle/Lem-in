@@ -1,6 +1,6 @@
 #include "../lemin.h"
 
-void  struct_init(t_map *m)
+void  struct_init(t_object *m)
 {
   int i = 1;
   m->rooms_array = (int*)malloc(sizeof(int) * (m->num_rooms));

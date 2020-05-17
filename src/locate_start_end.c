@@ -1,6 +1,6 @@
 #include "../lemin.h"
 
-static void locate_start(t_map *m)
+static void locate_start(t_object *m)
 {
   char  **rooms_list;
   char  *str;
@@ -23,7 +23,7 @@ static void locate_start(t_map *m)
     exit_program(m, 0, 1);
 }
 
-static void locate_end(t_map *m)
+static void locate_end(t_object *m)
 {
   char  **rooms_list;
   char  *str;
@@ -44,7 +44,7 @@ static void locate_end(t_map *m)
     exit_program(m, 0, 1);
 }
 
-void locate_start_end(t_map *m)
+void locate_start_end(t_object *m)
 {
   locate_start(m);
   locate_end(m);

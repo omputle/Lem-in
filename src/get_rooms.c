@@ -1,6 +1,6 @@
 #include "../lemin.h"
 
-void  get_rooms(t_map *m, char *line)
+void  get_rooms(t_object *m, char *line)
 {
   char  **room_vals;
   int   i;
