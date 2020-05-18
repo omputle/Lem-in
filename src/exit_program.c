@@ -26,6 +26,6 @@ void  exit_program(t_object *m, int check, int error)
   free(m);
   m = NULL;
   if (error)
-  ft_putendl("ERROR");
+    ft_putendl("ERROR");
   exit(0);
 }

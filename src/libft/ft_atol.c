@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omputle <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 09:57:34 by omputle           #+#    #+#             */
-/*   Updated: 2019/09/14 06:28:15 by omputle          ###   ########.fr       */
+/*   Created: 2019/09/14 06:27:07 by omputle           #+#    #+#             */
+/*   Updated: 2019/09/14 06:46:44 by omputle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	unsigned int		num;
-	int					sign;
-	int					i;
+	long		num;
+	long		sign;
+	int			i;
 
 	num = 0;
 	sign = 1;
@@ -34,9 +32,5 @@ int		ft_atoi(const char *str)
 		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	if (num > 2147483648 && sign == -1)
-		return (0);
-	else if (num > 2147483648 && sign == 1)
-		return (-1);
 	return (num * sign);
 }

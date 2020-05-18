@@ -44,8 +44,26 @@ static void locate_end(t_object *m)
     exit_program(m, 0, 1);
 }
 
+static void  validate_links(t_object *m)
+{
+  char **start;
+  char **end;
+
+  start = ft_strsplit(m->start, ' ');
+  end = ft_strsplit(m->end, ' ');
+  if (!ft_strstr(m->links, start[0]) || !ft_strstr(m->links, end[0]))
+  {
+    del_array_arrays(start);
+    del_array_arrays(end);
+    exit_program(m, 0, 1);
+  }
+  del_array_arrays(start);
+  del_array_arrays(end);
+}
+
 void locate_start_end(t_object *m)
 {
   locate_start(m);
   locate_end(m);
+  validate_links(m);
 }

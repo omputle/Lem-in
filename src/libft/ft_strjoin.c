@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omputle <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 09:57:34 by omputle           #+#    #+#             */
-/*   Updated: 2019/09/14 06:28:15 by omputle          ###   ########.fr       */
+/*   Created: 2019/06/03 16:11:52 by omputle           #+#    #+#             */
+/*   Updated: 2019/07/04 17:13:15 by omputle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int		num;
-	int					sign;
-	int					i;
+	char	*ans;
+	size_t	len;
+	size_t	i;
+	size_t	j;
 
-	num = 0;
-	sign = 1;
 	i = 0;
-	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == 32))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10 + (str[i] - '0');
-		i++;
-	}
-	if (num > 2147483648 && sign == -1)
+	j = 0;
+	if (s1 == NULL || s2 == NULL)
 		return (0);
-	else if (num > 2147483648 && sign == 1)
-		return (-1);
-	return (num * sign);
+	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	if (!(ans = (char *)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	while (s1[i] != '\0')
+	{
+		ans[i] = (char)s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		ans[i] = (char)s2[j];
+		j++;
+		i++;
+	}
+	ans[i] = '\0';
+	return (ans);
 }
