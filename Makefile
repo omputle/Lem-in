@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 NAME = Lem-in
-# LIBFT = libft/*.c
 LIBFT = libft/ft_atoi.c \
       libft/ft_itoa.c \
       libft/ft_bzero.c \

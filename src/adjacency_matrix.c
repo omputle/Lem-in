@@ -19,13 +19,11 @@ static  void set_rooms_array(t_object *m, char *start, char *end)
     room = ft_strsplit(rooms_str[i], ' ');
     if (room[0][0] != '#')
     {
-      if (ft_isnum(room[0]))
+      if (ft_isnum(room[0]) && ft_atoi(room[0]) != ft_atoi(start) &&
+      ft_atoi(room[0]) != ft_atoi(end))
         m->rooms_array[count] = ft_atoi(room[0]);
       else
-      {
-        del_array_arrays(room);
         exit_program(m, 1, 1);
-      }
       count++;
     }
     del_array_arrays(room);
@@ -66,11 +64,17 @@ void  add_links_to_adjmat(t_object *m)
   links = ft_strsplit(m->links, '\n');
   while (links[i] != NULL)
   {
-    if (links[i][0] != '#' && ft_strlen(links[i]) == 3)
+    if (links[i][0] != '#')
     {
       link = ft_strsplit(links[i], '-');
       left = find_room(m, ft_atoi(link[0]));
       right = find_room(m, ft_atoi(link[1]));
+      if (left >= m->num_rooms || right >= m->num_rooms)
+      {
+        del_array_arrays(link);
+        del_array_arrays(links);
+        exit_program(m, 1, 1);
+      }
       if (left < m->num_rooms && right < m->num_rooms)
       {
         m->adj_mat[left][right] = 1;
@@ -90,8 +94,8 @@ void  adjacency_matrix(t_object *m)
 
   start = ft_strsplit(m->start, ' ');
   end = ft_strsplit(m->end, ' ');
-  set_rooms_array(m, start[0], end[0]);
   create_adjaceny_matrix(m);
+  set_rooms_array(m, start[0], end[0]);
   add_links_to_adjmat(m);
   del_array_arrays(start);
   del_array_arrays(end);

@@ -24,7 +24,5 @@ void  get_links(t_object *m, char *line)
     i++;
   }
   del_array_arrays(link);
-  if (i != 2)
-    exit_program(m, 0, 1);
   m->links = append_string(m->links, line);
 }
