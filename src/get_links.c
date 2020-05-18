@@ -11,7 +11,7 @@ void  get_links(t_object *m, char *line)
   }
   if (m->check == 2)
     m->check = 3;
-  if (m->check != 3)
+  if (m->check != 3 || ft_strlen(line) != 3)
     exit_program(m, 0, 1);
   link = ft_strsplit(line, '-');
   while (link[i] != NULL)
