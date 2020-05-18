@@ -12,6 +12,7 @@ static  void set_rooms_array(t_object *m, char *start, char *end)
   inv_str = ft_strsplit(m->rooms, '\n');
   temp = ft_strimplode(inv_str, m->start, m->end);
   rooms_str = ft_strsplit(temp, '\n');
+  ft_strdel(&temp);
   m->rooms_array[0] = ft_atoi(start);
   m->rooms_array[m->num_rooms - 1] = ft_atoi(end);
   while (count < m->num_rooms - 1)
@@ -23,13 +24,18 @@ static  void set_rooms_array(t_object *m, char *start, char *end)
       ft_atoi(room[0]) != ft_atoi(end))
         m->rooms_array[count] = ft_atoi(room[0]);
       else
+      {
+        del_array_arrays(inv_str);
+        del_array_arrays(rooms_str);
+        del_array_arrays(room);
         exit_program(m, 1, 1);
+      }
       count++;
     }
     del_array_arrays(room);
     i++;
   }
-  ft_strdel(&temp);
+
   del_array_arrays(inv_str);
   del_array_arrays(rooms_str);
 }
