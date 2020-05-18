@@ -22,7 +22,10 @@ static  void set_rooms_array(t_object *m, char *start, char *end)
       if (ft_isnum(room[0]))
         m->rooms_array[count] = ft_atoi(room[0]);
       else
+      {
+        del_array_arrays(room);
         exit_program(m, 1, 1);
+      }
       count++;
     }
     del_array_arrays(room);
@@ -63,15 +66,18 @@ void  add_links_to_adjmat(t_object *m)
   links = ft_strsplit(m->links, '\n');
   while (links[i] != NULL)
   {
-    link = ft_strsplit(links[i], '-');
-    left = find_room(m, ft_atoi(link[0]));
-    right = find_room(m, ft_atoi(link[1]));
-    if (left < m->num_rooms && right < m->num_rooms)
+    if (links[i][0] != '#' && ft_strlen(links[i]) == 3)
     {
-      m->adj_mat[left][right] = 1;
-      m->adj_mat[right][left] = 1;
+      link = ft_strsplit(links[i], '-');
+      left = find_room(m, ft_atoi(link[0]));
+      right = find_room(m, ft_atoi(link[1]));
+      if (left < m->num_rooms && right < m->num_rooms)
+      {
+        m->adj_mat[left][right] = 1;
+        m->adj_mat[right][left] = 1;
+      }
+      del_array_arrays(link);
     }
-    del_array_arrays(link);
     i++;
   }
   del_array_arrays(links);

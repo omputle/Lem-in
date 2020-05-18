@@ -5,7 +5,10 @@ void  get_links(t_object *m, char *line)
   char  **link;
   int i = 0;
   if (line[0] == '#')
+  {
+    m->links = append_string(m->links, line);
     return ;
+  }
   if (m->check == 2)
     m->check = 3;
   if (m->check != 3)
@@ -21,5 +24,7 @@ void  get_links(t_object *m, char *line)
     i++;
   }
   del_array_arrays(link);
+  if (i != 2)
+    exit_program(m, 0, 1);
   m->links = append_string(m->links, line);
 }
